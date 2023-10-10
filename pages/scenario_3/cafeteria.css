@@ -1,0 +1,50 @@
+body{
+    font-family: "Montserrat", sans-serif;
+    background-image: url('../../assets/cafeteriat.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.lucas{
+    top:29.6%;
+    left:40%;
+    position: absolute; 
+}
+.mathilde{
+    top:31.6%;
+    left:20%;
+    position: absolute;
+}
+.conseillere{
+    top:30%;
+    left:60%;
+    position: absolute;
+}
+.back {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+    background-color: black;
+    border-radius: 200px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  .back svg path {
+    fill: white;
+  }
+  .back span {
+    display: none;
+  }
+  
+  .back:hover span {
+    z-index: 2;
+    display: block;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 1em;
+  }
+  a:visited {
+    color: unset;
+  }

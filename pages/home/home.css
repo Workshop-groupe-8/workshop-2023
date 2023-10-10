@@ -1,0 +1,166 @@
+body{
+    background-color: black;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+.bar{
+    background-color:#85C1E9;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 5%;
+}
+.animated-text{
+    top: 30%;
+    left: 33%;
+    position: absolute;
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.animated-text span{
+    position: relative;
+}
+
+.animated-text span::before{
+    content: "Zero Tolerance Zone";
+    color: #85C1E9;
+    animation: words 20s infinite;
+}
+
+.animated-text span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: black;
+    border-left: 2px solid #85C1E9;
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+    0%,100%{
+        content: "Safe Spaces";
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}
+.login-box{
+    width: 280px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+  }
+  .textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #85C1E9;
+  }
+  .textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+  }
+  .textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+  }
+  .btn{
+    width: 100%;
+    background: none;
+    border: 2px solid #85C1E9;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+  }
+  .snow_wrap {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+.snow,.snow:after,.snow::before {
+  content: '';
+  position: absolute;
+  top: -650px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(4px 4px at 100px 50px,#fff,transparent),
+                    radial-gradient(6px 6px at 200px 150px, #fff,transparent),
+                    radial-gradient(3px 3px at 300px 250px,#fff,transparent),
+                    radial-gradient(4px 4px at 400px 350px,#fff,transparent),
+                    radial-gradient(6px 6px at 500px 100px,#fff,transparent),
+                    radial-gradient(3px 3px at 50px 200px,#fff,transparent),
+                    radial-gradient(4px 4px at 150px 300px,#fff,transparent),
+                    radial-gradient(6px 6px at 250px 400px,#fff,transparent),
+                    radial-gradient(3px 3px at 300px 300px,#fff,transparent),
+                    radial-gradient(4px 4px at 50px 50px,#fff,transparent);
+  background-size: 650px 650px;
+  animation: SnowAnim 3s linear infinite;
+}
+.snow:after {
+  margin-left: -250px;
+  opacity: 0.5;
+  filter: blur(2px);
+  animation-direction: reverse;
+  animation-duration: 6s;
+}
+.snow::before {
+  margin-left: -350px;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation-direction: reverse;
+  animation-duration: 9s;
+}
+@keyframes SnowAnim {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(650px);
+  }
+}
+.button1 {
+    background-color: #85C1E9;
+    top:85%;
+    left: 85%;
+    border: none;
+    position: absolute;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 20%;
+    cursor: pointer;
+  }

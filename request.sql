@@ -1,7 +1,7 @@
 -- Création de la table users
 CREATE TABLE users (
   id INTEGER PRIMARY KEY,
-  mail VARCHAR,
+  mail VARCHAR UNIQUE,
   password VARCHAR
 );
 

@@ -138,12 +138,16 @@ header h1{
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    font-size: 3em;
+    font-size: 1.5em;
     z-index: 2;
-    color: black;
-}
-#white{
     color: white;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(234, 210, 0, .9);
+    border-radius: 50%;
 }
 .scenario:hover{
     transform: scale(1.015);

@@ -1,12 +1,11 @@
-import { getUsers, getUser, createUser, updateUser, deleteUser } from '../controllers/users'
-import express from 'express'
+import { getUsers, getUser, createUser,loginUser } from '../controllers/users'
+import { Router } from 'express'
 
-const router = express.Router()
+const userRoutes = Router()
 
-export default function userRoutes(app: any, getUsers, getUser, createUse, updateUser, deleteUser) {
-    router.get('/users', getUsers)
-    router.get('/:userID', getUser)
-    router.post('/', createUse) 
-    router.put('/:userID', updateUser) 
-    router.delete('/:userID', deleteUser)
-}
+userRoutes.get('/users', getUsers)
+userRoutes.get('/:userID', getUser)
+userRoutes.post('/', createUser) 
+userRoutes.post('/login', loginUser)
+
+export default userRoutes

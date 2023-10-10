@@ -1,167 +1,201 @@
-*{
-    margin: 0;
-    list-style: none;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    text-decoration: #ffffff;
-}
-a:visited{
-    color: unset;
-}
-body{
-    background-color: black;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: #ffffff;
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 25vh;
+a:visited {
+  color: unset;
 }
 
-.game_title{
-    color: white;
-    font-size: 60px;
+body {
+  background-color: black;
 }
 
-.start_game{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 3em;
-    font-weight: 700;
-    border: unset;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: white;
-
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.start_game:hover{
-    opacity: 0.75;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 25vh;
 }
 
-.coffee_room{
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-image: url(../assets/cafe.png);
-}
-.back{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 5vh;
-    left: 5vh;
-    background-color: black;
-    border-radius: 200px;
-    padding: .5em 1em;
-    cursor: pointer;
-}
-.back svg path{
-    fill: white;
-}
-.back span{
-    display: none;
+.game_title {
+  color: white;
+  font-size: 60px;
 }
 
-.back:hover  span{
-    z-index: 2;
-    display: block;
-    color: white;
-    font-size: 1.5em;
-    margin-left: 1em;
+.start_game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 3em;
+  font-weight: 700;
+  border: unset;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+.start_game:hover {
+  opacity: 0.75;
+}
+
+.coffee_room {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../assets/cafe.png);
+}
+.back {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 5vh;
+  left: 5vh;
+  background-color: black;
+  border-radius: 200px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+.back svg path {
+  fill: white;
+}
+.back span {
+  display: none;
+}
+
+.back:hover span {
+  z-index: 2;
+  display: block;
+  color: white;
+  font-size: 1.5em;
+  margin-left: 1em;
 }
 
 /*
         Map choix de salle
 */
 
-
-header h1{
-    color: white;
-    font-size: 60px;
-    text-align: center;
-    padding: .75em;
+header h1 {
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  padding: 0.75em;
 }
 
 .map {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 1em;
-    grid-row-gap: 1em;
-    padding: .5em 2em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  padding: 0.5em 2em;
 }
 
-.scenario1{ grid-area: 1 / 1 / 2 / 2; }
-.scenario2 { grid-area: 1 / 2 / 2 / 3; }
-.scenario3 { grid-area: 2 / 1 / 3 / 2;  }
-.scenario4 { grid-area: 2 / 2 / 3 / 3; }
-
-.scenario{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    width: 100%;
-    height: 100%;
-    font-size: 50px;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all .15s ease-in-out;    
+.un {
+  grid-area: 1 / 1 / 2 / 2;
 }
+
+.deux {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.trois {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.quatre {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.scenario {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  overflow: hidden;
+}
+
 .scenario img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: blur(2px);
+  transition: filter 1s;
 }
-.scenario  {
-    filter: blur(1px);
+
+.scenario img:hover {
+  filter: blur(0);
 }
-.scenario span{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    font-size: 1.5em;
-    z-index: 2;
-    color: white;
-    width: 2em;
-    height: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(234, 210, 0, .9);
-    border-radius: 50%;
+
+.scenario span {
+  position: absolute;
+  z-index: 99;
+  color: white;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(234, 210, 0, 0.9);
+  border-radius: 50%;
 }
-.scenario:hover{
-    transform: scale(1.015);
-    filter: blur(0);
+
+.description {
+  border-bottom: 1px solid black;
+  position: absolute;
+  text-align: center;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 1vw;
+  font-size: 0.5em;
+  font-family: "Roboto", sans-serif;
+  transition: transform 1s;
+  transform: translateX(-1000px);
+}
+
+.trois .description {
+  color: white;
+}
+
+.scenario:hover .description {
+  transform: translateX(0);
 }
 
 /*
     scenario 1
 */
 
-.scenario_1{
-    background-image: url(./assets/cafeteriat.png);
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+.scenario_1 {
+  background-image: url(./assets/cafeteriat.png);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 }

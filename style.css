@@ -88,15 +88,7 @@ main{
         Map choix de salle
 */
 
-.map_room{
-    height: 100vh;
-}
-.map_room main{
-    height: 70vh;
-}
-header{
-    height: 30vh;
-}
+
 header h1{
     color: white;
     font-size: 60px;
@@ -110,12 +102,12 @@ header h1{
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 1em;
     grid-row-gap: 1em;
-    padding: 1em 2em;
+    padding: .5em 2em;
 }
 
 .scenario1{ grid-area: 1 / 1 / 2 / 2; }
 .scenario2 { grid-area: 1 / 2 / 2 / 3; }
-.scenario3 { grid-area: 2 / 1 / 3 / 2; }
+.scenario3 { grid-area: 2 / 1 / 3 / 2;  }
 .scenario4 { grid-area: 2 / 2 / 3 / 3; }
 
 .scenario{
@@ -132,7 +124,40 @@ header h1{
     cursor: pointer;
     transition: all .15s ease-in-out;    
 }
+.scenario img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.scenario  {
+    filter: blur(1px);
+}
+.scenario span{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 3em;
+    z-index: 2;
+    color: black;
+}
+#white{
+    color: white;
+}
 .scenario:hover{
-    background-color: rgba(255, 255, 255, .2);
-    
+    transform: scale(1.015);
+    filter: blur(0);
+}
+
+/*
+    scenario 1
+*/
+
+.scenario_1{
+    background-image: url(./assets/cafeteriat.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
 }

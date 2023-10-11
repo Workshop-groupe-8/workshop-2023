@@ -17,8 +17,8 @@
         </a>
     </main>
     <div class="people">
-        <img id="myImg" src="../../assets/personnages/mathilde/Mathilde 1.png">
-        <img src="../../assets/personnages/lucas/Lucas T. 1.png">
+        <img id="mathilde" src="../../assets/personnages/mathilde/Mathilde 1.png">
+        <img id="lucas" src="../../assets/personnages/lucas/Lucas T. 1.png">
         <img src="../../assets/personnages/conseillère/Conseillère 1.png">
     </div>
    
@@ -27,76 +27,109 @@
         <!-- Full-width slides/quotes -->
         <div class="mySlides">
           <q>Bonjour, je peux m'asseoir avec vous? 🙂</q>
-          <p class="author">- Mathilde G</p>
+          <p class="author mathilde-author"id="image">- Mathilde G</p>
         </div>
       
         <div class="mySlides">
           <q>Oui bien sûr !.</q>
-          <p class="author">- Lucas T.</p>
+          <p class="author lucas-author" id="image">- Lucas T.</p>
         </div>
       
         <div class="mySlides">
           <q>Merci ! (“s’assoit”).</q>
-          <p class="author">- Mathilde G</p>
+          <p class="author mathilde-author" id="image">- Mathilde G</p>
         </div>
     
         <div class="mySlides">
             <q>Par contre …</q>
-            <p class="author">- Lucas T.</p>
+            <p class="author lucas-author" id="image">- Lucas T.</p>
           </div>
     
           <div class="mySlides">
             <q>Oui?</q>
-            <p class="author">- Mathilde G</p>
+            <p class="author mathilde-author" id="image">- Mathilde G</p>
           </div>
     
           <div class="mySlides">
             <q>Tu penses que c'est judicieux d’avoir choisi la part de pizza ?</q>
-            <p class="author">- Lucas T.</p>
+            <p class="author lucas-author" id="image">- Lucas T.</p>
           </div>
     
           <div class="mySlides">
             <q>Pourquoi…?</q>
-            <p class="author">- Mathilde G</p>
+            <p class="author mathilde-author" id="image">- Mathilde G</p>
           </div>
     
           <div class="mySlides">
             <q>Tu es un peu ronde, et pour être honnête, tu serais hyper canon avec 20 kilos en moins. Un régime te ferait pas de mal.</q>
-            <p class="author">- Lucas T.</p>
+            <p class="author lucas-author" id="image">- Lucas T.</p>
           </div>
       
         <!-- Next/prev buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1)" id="prevButton">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)" id="nextButton">&#10095;</a>
       </div>
+      <a class="next" onclick="nextSlide()" id="nextSlideButton" style="display: none" href="cafeteriaQuestion.html">Suivant</a>
     
       <script>
-        var slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
+      var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+    updateNextSlideButtonVisibility();
+}
+
+function nextSlide() {
+    plusSlides(1);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var authorElement = document.getElementById("image");
+    var lucasImage = document.getElementById("lucas");
+    var prevButton = document.getElementById("prevButton");
+    var nextButton = document.getElementById("nextButton");
+
+    if (n > slides.length) {
+        slideIndex = slides.length;
+        nextButton.classList.add("disabled");
+    } else {
+        nextButton.classList.remove("disabled");
     }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
+
+    if (n < 1) {
+        slideIndex = 1;
+        prevButton.classList.add("disabled");
+    } else {
+        prevButton.classList.remove("disabled");
     }
-    
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
+    slides[slideIndex - 1].style.display = "block";
+
+    // Mettre à jour l'image de Lucas en fonction de l'auteur
+    if (authorElement.textContent.trim() === "- Lucas T.") {
+        lucasImage.src = "../../assets/personnages/lucas/Lucas T. 2.png";
+    } else {
+        lucasImage.src = "../../assets/personnages/lucas/Lucas T. 1.png";
+    }
+}
+
+function updateNextSlideButtonVisibility() {
+    var nextButton = document.getElementById("nextButton");
+    var nextSlideButton = document.getElementById("nextSlideButton");
+
+    if (nextButton.classList.contains("disabled")) {
+        nextSlideButton.style.display = "block";
+    } else {
+        nextSlideButton.style.display = "none";
+    }
+}
       </script>
+
 </body>
 </html>

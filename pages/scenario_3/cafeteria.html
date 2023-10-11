@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conseil VSS</title>
     <link rel="stylesheet" href="cafeteria.css">
-    <script src="../../app.js"></script>
+    <script src="../../script.js"></script>
 </head>
 <body>
     <main class="coffee_room">
@@ -16,6 +16,87 @@
             <span>Revenir en arrière</span>
         </a>
     </main>
-    <img src=""
+    <div class="people">
+        <img id="myImg" src="../../assets/personnages/mathilde/Mathilde 1.png">
+        <img src="../../assets/personnages/lucas/Lucas T. 1.png">
+        <img src="../../assets/personnages/conseillère/Conseillère 1.png">
+    </div>
+   
+    <div class="slideshow-container">
+
+        <!-- Full-width slides/quotes -->
+        <div class="mySlides">
+          <q>Bonjour, je peux m'asseoir avec vous? 🙂</q>
+          <p class="author">- Mathilde G</p>
+        </div>
+      
+        <div class="mySlides">
+          <q>Oui bien sûr !.</q>
+          <p class="author">- Lucas T.</p>
+        </div>
+      
+        <div class="mySlides">
+          <q>Merci ! (“s’assoit”).</q>
+          <p class="author">- Mathilde G</p>
+        </div>
+    
+        <div class="mySlides">
+            <q>Par contre …</q>
+            <p class="author">- Lucas T.</p>
+          </div>
+    
+          <div class="mySlides">
+            <q>Oui?</q>
+            <p class="author">- Mathilde G</p>
+          </div>
+    
+          <div class="mySlides">
+            <q>Tu penses que c'est judicieux d’avoir choisi la part de pizza ?</q>
+            <p class="author">- Lucas T.</p>
+          </div>
+    
+          <div class="mySlides">
+            <q>Pourquoi…?</q>
+            <p class="author">- Mathilde G</p>
+          </div>
+    
+          <div class="mySlides">
+            <q>Tu es un peu ronde, et pour être honnête, tu serais hyper canon avec 20 kilos en moins. Un régime te ferait pas de mal.</q>
+            <p class="author">- Lucas T.</p>
+          </div>
+      
+        <!-- Next/prev buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    
+      <script>
+        var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+      </script>
 </body>
 </html>

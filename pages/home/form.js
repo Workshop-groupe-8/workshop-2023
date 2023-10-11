@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const json = await response.json();
       console.log(json);
       alert("This form has been successfully submitted!");
+      location.href = "http://127.0.0.1:5500/pages/map/index.html";
     }
   });
 });

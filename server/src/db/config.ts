@@ -1,0 +1,13 @@
+import sqlite3 from 'sqlite3';
+
+const dbPath = './sql.db';
+
+export const db = new sqlite3.Database(dbPath,sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Connected to the database.');
+}
+);
+
+db.close() 

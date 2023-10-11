@@ -21,7 +21,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
         } else {
             res.status(401).json({message: "Unauthorized"})
         }
-    } catch (error) {
+    } catch (error:any) {
         throw new Error(error.message)
     }
 }

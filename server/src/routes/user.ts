@@ -3,9 +3,9 @@ import { Router } from 'express'
 
 const userRoutes = Router()
 
-userRoutes.get('/users', getUsers)
-userRoutes.get('/:userID', getUser)
-userRoutes.post('/', createUser) 
-userRoutes.post('/login', loginUser)
+userRoutes.get('/api/users', getUsers)
+userRoutes.get('/api/:userID', getUser)
+userRoutes.post('/api/user', createUser) 
+userRoutes.post('/api/login', loginUser)
 
 export default userRoutes 

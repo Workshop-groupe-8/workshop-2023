@@ -4,13 +4,14 @@ import { db } from "./config";
 export class User {
     public static async findAll(): Promise<IUser[]> {
         return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM users", (err, rows:IUser[]) => {
+            db.query("SELECT * FROM users", (err, rows:IUser[]) => {
                 if (err) {
                     reject(err);
                 } else {
                     resolve(rows);
                 }
-            });
+            }
+            );
         });
     }
 

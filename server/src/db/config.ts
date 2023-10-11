@@ -1,13 +1,9 @@
-import sqlite3 from 'sqlite3';
+import { Pool } from 'pg';
 
-const dbPath = './sql.db';
-
-export const db = new sqlite3.Database(dbPath,sqlite3.OPEN_READWRITE, (err) => {
-    if (err) {
-        console.error(err.message);
-    }
-    console.log('Connected to the database.');
-}
-);
-
-db.close() 
+export const db = new Pool({
+    user: process.env.DB_USER,
+    host: 'localhost',
+    database: process.env.DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+  })

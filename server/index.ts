@@ -3,10 +3,17 @@ import userRoutes from './src/routes/user'
 import taskRoutes from './src/routes/task'
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use("/api/users", userRoutes)
-app.use('/api/tasks', taskRoutes)
+app.use(express.json());
+
+app.get('/', (req: Request, res: Response) => {
+    res.send('Express + TypeScript Server');
+    }
+);
+app.use("/", userRoutes)
+app.use('/',taskRoutes);
 
 app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+  console.log(`Server is running on port: ${PORT}`);
 });

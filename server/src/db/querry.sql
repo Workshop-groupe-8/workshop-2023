@@ -1,5 +1,0 @@
-CREATE TABLE users (
-  id INTEGER PRIMARY KEY,
-  mail VARCHAR UNIQUE,
-  password VARCHAR
-);

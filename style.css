@@ -12,12 +12,12 @@
   text-decoration: #ffffff;
 }
 
-a:visited {
-  color: unset;
+a {
+  color: black;
 }
 
-body {
-  background-color: black;
+a:visited {
+  color: unset;
 }
 
 main {
@@ -91,6 +91,10 @@ main {
 /*
         Map choix de salle
 */
+
+.map_room {
+  background-color: black;
+}
 
 header h1 {
   color: white;
@@ -180,10 +184,6 @@ header h1 {
   transform: translateX(-1000px);
 }
 
-.trois .description {
-  color: white;
-}
-
 .scenario:hover .description {
   transform: translateX(0);
 }
@@ -197,6 +197,7 @@ a:active a {
 */
 
 .scenario_1 {
+  background-color: white;
   background-image: url(./assets/cafeteriat.png);
   background-size: cover;
   background-position: center;

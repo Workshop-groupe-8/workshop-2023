@@ -4,7 +4,7 @@ import { db } from "./config";
 export class User {
     public static async findAll(): Promise<IUser[]> {
         return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM users", (err, rows) => {
+            db.all("SELECT * FROM users", (err, rows:IUser[]) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -16,7 +16,7 @@ export class User {
 
     public static async findByPk(id: number): Promise<IUser | null> {
         return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM users WHERE id = ?", [id], (err, row) => {
+            db.get("SELECT * FROM users WHERE id = ?", [id], (err, row:IUser) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -42,7 +42,7 @@ export class User {
 export class Task {
     public static async findAll(): Promise<ITask[]> {
         return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM tasks", (err, rows) => {
+            db.all("SELECT * FROM tasks", (err, rows:ITask[]) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -54,7 +54,7 @@ export class Task {
 
     public static async findByPk(id: number): Promise<ITask | null> {
         return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM tasks WHERE id = ?", [id], (err, row) => {
+            db.get("SELECT * FROM tasks WHERE id = ?", [id], (err, row:ITask) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -64,3 +64,4 @@ export class Task {
         });
     }
 }
+ 

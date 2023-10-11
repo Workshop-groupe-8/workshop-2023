@@ -1,8 +1,13 @@
 import sqlite3 from 'sqlite3';
 
-export const db = new sqlite3.Database(':memory:');
-db.serialize(() => {
-    db.run("CREATE TABLE users (id INTEGER PRIMARY KEY, mail VARCHAR,password VARCHAR);")
-})
+const dbPath = './sql.db';
 
-db.close()
+export const db = new sqlite3.Database(dbPath,sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Connected to the database.');
+}
+);
+
+db.close() 

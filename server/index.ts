@@ -7,8 +7,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use("/api/users", userRoutes)
-app.use('/api/tasks', taskRoutes)
+app.get('/', (req: Request, res: Response) => {
+    res.send('Express + TypeScript Server');
+    }
+);
+app.use("/", userRoutes)
+app.use('/',taskRoutes);
 
 app.listen(3000, () => {
   console.log(`Server is running on port: ${PORT}`);

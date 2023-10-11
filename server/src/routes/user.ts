@@ -8,4 +8,4 @@ userRoutes.get('/:userID', getUser)
 userRoutes.post('/', createUser) 
 userRoutes.post('/login', loginUser)
 
-export default userRoutes
+export default userRoutes 

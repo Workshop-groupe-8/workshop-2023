@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz</title>
+    <link rel="stylesheet" href="cafeteriaQuestion.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C’est à vous de réagir !</h1>
+        <h1> Dans cette situation, il s'agit : </h1>
+        <div class="answers">
+            <div class="answer" onclick="checkAnswer(this)">Un conseil, rien de plus</div>
+            <div class="answer" onclick="checkAnswer(this)">Une bonne blague entre collègue</div>
+            <div class="answer" onclick="checkAnswer(this)">Une remarque déplacée</div>
+            <div class="answer" onclick="checkAnswer(this)">Du harcèlement sexiste et sexuel</div>
+        </div>
+        <div class="timer">Temps restant : <span id="countdown">60</span> secondes</div>
+        <div id="result" style="display: none;"></div>
+    </div>
+    <a id="learnMore" style="display: none;" href="https://www.inrs.fr/risques/harcelements-sexuel-agissements-sexistes/reglementation.html"> En savoir plus</a>
+    <a id="nextQuestion" style="display: none;" href="../map/index.html">Menu</a>
+    <script>
+        const correctAnswer = "Du harcèlement sexiste et sexuel";
+let countdown = 60;
+let timer;
+let canAnswer = true;
+
+function startTimer() {
+    timer = setInterval(function () {
+        countdown--;
+        document.getElementById("countdown").textContent = countdown;
+        if (countdown <= 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").textContent = "Temps écoulé";
+            canAnswer = false; // Désactive la possibilité de répondre
+            showExplanation(); // Affiche l'explication à la fin du compte à rebours
+        }
+    }, 1000);
+}
+
+function checkAnswer(answerElement) {
+    if (!canAnswer) {
+        return; // Ne traite pas la réponse si la possibilité de répondre est désactivée
+    }
+    
+    clearInterval(timer);
+    canAnswer = false; // Désactive la possibilité de répondre
+
+    const selectedAnswer = answerElement.textContent;
+    const resultElement = document.getElementById("result");
+
+    if (selectedAnswer === correctAnswer) {
+        answerElement.style.backgroundColor = "green";
+        resultElement.textContent = "Bonne réponse !";
+    } else {
+        answerElement.style.backgroundColor = "red";
+        resultElement.textContent = "Mauvaise réponse. La réponse correcte est : " + correctAnswer;
+    }
+
+    showExplanation(); // Affiche l'explication après la réponse
+    document.getElementById("nextQuestion").style.display = "block";
+    document.getElementById("learnMore").style.display = "block";
+}
+
+function showExplanation() {
+    const resultElement = document.getElementById("result");
+    resultElement.style.display = "block";
+    resultElement.textContent += "\nExplication : Le harcèlement sexuel et sexiste est une forme de comportement inacceptable où une personne est soumise à des avances non désirées, des commentaires dégradants, ou des actes discriminatoires basés sur son sexe.";
+}
+
+document.addEventListener("DOMContentLoaded", startTimer);
+    </script>
+</body>
+</html>

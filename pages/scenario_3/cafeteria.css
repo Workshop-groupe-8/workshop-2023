@@ -113,5 +113,23 @@ body{
 /* Add an italic font style to all quotes */
 q {font-style: italic;}
 
-/* Add a blue color to the author */
-.author {color: cornflowerblue;}
+.author {
+  color: black; /* Couleur par défaut du texte */
+}
+
+/* Style pour Lucas T. */
+.lucas-author {
+  color: green; /* Couleur pour Lucas T. */
+}
+
+/* Style pour Mathilde G */
+.mathilde-author {
+  color: purple; /* Couleur pour Mathilde G */
+}
+/* Ajoutez ces styles pour désactiver les boutons */
+.prev.disabled, .next.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

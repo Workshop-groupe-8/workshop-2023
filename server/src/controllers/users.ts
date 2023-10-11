@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { IUser } from "../types/index"
 import { User } from '../db'
+import jwt from "jsonwebtoken"
 
 export const getUser = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -38,7 +39,7 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
 export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const body = req.body as Pick<IUser, "mail" | "password">
-        const user: IUser = await User.create({
+        const user: Pick<IUser, "mail" | "password"> = await User.create({
             mail: body.mail,
             password: body.password
         })

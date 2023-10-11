@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let password = formdata.get("password");
 
     if (username == "" || password == "") {
-      alert("Ensure you input a value in both fields!");
+      alert("Veuillez remplir les deux champs!");
     } else {
       const url = "http://localhost:3000/api/login";
       const options = {
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(url, options);
       const json = await response.json();
       console.log(json);
-      alert("This form has been successfully submitted!");
+      alert("Login réussi!");
       location.href = "http://127.0.0.1:5500/pages/map/index.html";
     }
   });

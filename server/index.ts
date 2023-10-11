@@ -16,5 +16,5 @@ app.use("/", userRoutes)
 app.use('/',taskRoutes);
 
 app.listen(3000, () => {
-  console.log(`Server is running on port: ${PORT}`);
+  console.log(`Server is running on: http://localhost:${PORT}`);
 });

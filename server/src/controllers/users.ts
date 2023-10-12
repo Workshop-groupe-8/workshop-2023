@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { IUser } from "../types/index";
 import { User } from "../db";
 import jwt from "jsonwebtoken";
+import bcrypt, { hash } from "bcrypt"
+
 
 export const getUser = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -13,20 +15,31 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
+  const { mail, password }:{ mail:string, password:string } = req.body;
   try {
+
     const isUserExist = await User.isUserExist(
-      req.body.mail,
-      req.body.password
+      mail,
     );
-    if (isUserExist) {
-      // Générez un token
-      const data = { mail: req.body.mail };
-      const token = jwt.sign(data, "votre_secret_key", {
-        expiresIn: "1h", // Vous pouvez ajuster la durée de validité du token
-      });
-      res.status(200).json({ token });
-    } else {
+    if (!isUserExist) {
       res.status(401).json({ message: "Unauthorized" });
+    } else {
+      //compare password
+      console.log(isUserExist.password)
+      const isPasswordCorrect = await bcrypt.compare(
+        await bcrypt.hash(password,10),
+        isUserExist.password
+      );
+      if(!isPasswordCorrect){
+        res.status(401).json({ message: "Mauvais mot de passe" });
+      }
+       // Générez un token
+       const data = { mail: req.body.mail };
+       const token = jwt.sign(data, "votre_secret_key", {
+         expiresIn: "1h", // Vous pouvez ajuster la durée de validité du token
+       });
+       res.status(200).json({ message: "login réussi", token });
+      
     }
   } catch (error) {
     throw new Error(error.message);
@@ -48,9 +61,10 @@ export const createUser = async (
 ): Promise<void> => {
   try {
     const body = req.body as Pick<IUser, "mail" | "password">;
+    const hashedPassword = await bcrypt.hash(body.password, 10);
     const user: IUser = await User.create({
       mail: body.mail,
-      password: body.password,
+      password: hashedPassword,
     });
     res.status(201).json({ user });
   } catch (error) {

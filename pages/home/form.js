@@ -4,10 +4,10 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     console.log("oanf");
     const formdata = new FormData(loginForm);
-    let username = formdata.get("username");
+    let mail = formdata.get("username");
     let password = formdata.get("password");
 
-    if (username == "" || password == "") {
+    if (mail == "" || password == "") {
       alert("Veuillez remplir les deux champs!");
     } else {
       const url = "http://localhost:3000/api/login";
@@ -16,14 +16,20 @@ window.addEventListener("DOMContentLoaded", () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ mail, password }),
       };
 
       const response = await fetch(url, options);
       const json = await response.json();
-      console.log(json);
-      alert("Login réussi!");
-      location.href = "http://127.0.0.1:5500/pages/map/index.html";
+      if (json.message === "Mauvais mot de passe") {
+        alert("Mauvais mot de passe!");
+        window.location.reload();
+      } else if (json.message === "login réussi") {
+        location.href = "http://127.0.0.1:5500/pages/map/index.html";
+      } else {
+        alert("Utilisateur non trouvé!");
+        window.location.reload();
+      }
     }
   });
 });

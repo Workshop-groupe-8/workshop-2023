@@ -26,20 +26,17 @@ export class User {
     });
   }
 
-  public static async isUserExist(
-    mail: string,
-    password: string
-  ): Promise<boolean> {
+  public static async isUserExist(mail: string): Promise<IUser | boolean> {
     return new Promise((resolve, reject) => {
       db.query(
-        `SELECT * FROM users WHERE mail = '${mail}' AND password = '${password}'`,
+        `SELECT * FROM users WHERE mail = '${mail}' `,
         (err, result) => {
           if (err) {
-            console.error(err);
+            console.log(err);
             reject(false);
           } else {
             if (result.rows.length > 0) {
-              resolve(true);
+              resolve(result.rows[0]);
             } else {
               resolve(false);
             }
@@ -57,7 +54,7 @@ export class User {
     password: string;
   }): Promise<IUser> {
     return new Promise((resolve, reject) => {
-      db.run(
+      db.query(
         "INSERT INTO users (mail, password) VALUES (?, ?)",
         [mail, password],
         function (err) {
@@ -75,7 +72,7 @@ export class User {
 export class Task {
   public static async findAll(): Promise<ITask[]> {
     return new Promise((resolve, reject) => {
-      db.all("SELECT * FROM tasks", (err, rows: ITask[]) => {
+      db.query("SELECT * FROM tasks", (err, rows: ITask[]) => {
         if (err) {
           reject(err);
         } else {
@@ -87,7 +84,7 @@ export class Task {
 
   public static async findByPk(id: number): Promise<ITask | null> {
     return new Promise((resolve, reject) => {
-      db.get("SELECT * FROM tasks WHERE id = ?", [id], (err, row: ITask) => {
+      db.query("SELECT * FROM tasks WHERE id = ?", [id], (err, row: ITask) => {
         if (err) {
           reject(err);
         } else {

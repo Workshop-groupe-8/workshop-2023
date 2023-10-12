@@ -21,9 +21,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const response = await fetch(url, options);
       const json = await response.json();
-      console.log(json);
-      alert("Login réussi!");
-      location.href = "http://127.0.0.1:5500/pages/map/index.html";
+      if (json.message === "Mauvais mot de passe") {
+        alert("Mauvais mot de passe!");
+        window.location.reload();
+      } else if (json.message === "login réussi") {
+        location.href = "http://127.0.0.1:5500/pages/map/index.html";
+      } else {
+        alert("Utilisateur non trouvé!");
+        window.location.reload();
+      }
     }
   });
 });

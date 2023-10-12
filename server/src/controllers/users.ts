@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { IUser } from "../types/index";
 import { User } from "../db";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt"
+
 
 export const getUser = async (req: Request, res: Response): Promise<void> => {
   try {

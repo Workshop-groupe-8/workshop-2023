@@ -1,25 +1,30 @@
 body{
     font-family: "Montserrat", sans-serif;
-    background-image: url('../../assets/cafeteriat.png');
+    background-image: url('../../assets/cafe.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    width: 100%;
+    height: 100%;
 }
-.pierre{
-    top:29.6%;
+#pierre{
+    width: 18vh;
+    bottom:15%;
     left:40%;
-    position: absolute; 
 }
-.camille{
-    top:31.6%;
+#camille{
+    width: 22vh;
+    bottom:15%;
     left:20%;
-    position: absolute;
+    margin: 0 32px 0 128px;
 }
-.conseillere{
-    top:30%;
+
+#conseillere{
+    width: 18vh;
+    bottom:15%;
     left:60%;
-    position: absolute;
 }
+
 .back {
     display: flex;
     align-items: center;
@@ -50,9 +55,10 @@ body{
   }
 
   .people{
+
     position: absolute;
     left: 30%;
-    top: 30%;
+    bottom: 0%;
   }
 
   .continue{
@@ -119,13 +125,19 @@ q {font-style: italic;}
 
 /* Style pour Lucas T. */
 .pierre-author {
-  color: green; /* Couleur pour Lucas T. */
+  color: #565252; /* Couleur pour Lucas T. */
 }
 
 /* Style pour Mathilde G */
 .camille-author {
-  color: purple; /* Couleur pour Mathilde G */
+  color: #A2C7E9; /* Couleur pour Mathilde G */
 }
+
+/* Style pour la Conseillère */
+.conseillere-author {
+  color: #841F1F; /* Couleur pour Mathilde G */
+}
+
 /* Ajoutez ces styles pour désactiver les boutons */
 .prev.disabled, .next.disabled {
   pointer-events: none;

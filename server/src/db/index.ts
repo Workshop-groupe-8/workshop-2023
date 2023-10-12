@@ -26,9 +26,7 @@ export class User {
     });
   }
 
-  public static async isUserExist(
-    mail: string
-  ): Promise<IUser | boolean> {
+  public static async isUserExist(mail: string): Promise<IUser | boolean> {
     return new Promise((resolve, reject) => {
       db.query(
         `SELECT * FROM users WHERE mail = '${mail}' `,
@@ -38,7 +36,7 @@ export class User {
             reject(false);
           } else {
             if (result.rows.length > 0) {
-              resolve(result);
+              resolve(result.rows[0]);
             } else {
               resolve(false);
             }

@@ -25,8 +25,9 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
       res.status(401).json({ message: "Unauthorized" });
     } else {
       //compare password
+      console.log(isUserExist.password)
       const isPasswordCorrect = await bcrypt.compare(
-        password,
+        await bcrypt.hash(password,10),
         isUserExist.password
       );
       if(!isPasswordCorrect){

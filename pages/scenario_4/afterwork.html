@@ -8,7 +8,7 @@
     <script src="./script.js"></script>
   </head>
   <body>
-    <main class="afterwork">
+    <main class="coffee_room">
       <a class="back" href="../map/index.html">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,58 @@
         <span>Revenir en arrière</span>
       </a>
     </main>
-    <div class="manager"></div>
-    <div class="conseillere"></div>
+    <div class="people">
+      <img
+        id="conseillere"
+        src="../../assets/personnages/conseillère/Conseillère 1.png"
+      />
+      <img id="lucas" src="../../assets/personnages/lisa/Lisa 1.png" />
+    </div>
+
+    <div class="slideshow-container">
+      <!-- Full-width slides/quotes -->
+      <div class="mySlides">
+        <q>Bonjour Lisa, asseyez-vous s'il vous plaît. Comment puis-je vous aider aujourd'hui ?</q>
+        <p class="author conseillere-author" id="image">- Lisa F.</p>
+      </div>
+
+      <div class="mySlides">
+        <q>Bonjour. Je suis ici pour parler d'une situation très désagréable qui s'est produite au travail, et ça me préoccupe beaucoup.</q>
+        <p class="author lisa-author" id="image">- Conseillère</p>
+      </div>
+
+      <div class="mySlides">
+        <q>Je vous écoute, Lisa. Prenez votre temps pour m'expliquer ce qui s'est passé.</q>
+        <p class="author conseillere-author" id="image">- Lisa F.</p>
+      </div>
+
+      <div class="mySlides">
+        <q>Ce matin, pendant la réunion d'équipe, John, l'un de mes collègues, a tenu des propos vraiment homophobes et sexistes. Il a fait des commentaires offensants sur ma sexualité et a également tenu des remarques sexistes sur les femmes en général. C'était très humiliant et blessant.</q>
+        <p class="author lisa-author" id="image">Conseillère</p>
+      </div>
+
+      <div class="mySlides">
+        <q>Je suis vraiment désolée d'entendre cela, Lisa.. Avez-vous déjà parlé à John de l'impact de ses propos sur vous ?</q>
+        <p class="author conseillere-author" id="image">- Lisa F.</p>
+      </div>
+
+      <div class="mySlides">
+        <q>Non, je n'ai pas encore eu l'occasion de le faire. J'étais tellement choquée que je ne savais pas comment réagir sur le moment.</q>
+        <p class="author lisa-author" id="image">Conseillère</p>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)" id="prevButton">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" id="nextButton">&#10095;</a>
+      </div>
+
+      <!-- Next/prev buttons -->
+    </div>
+    <a
+      class="next"
+      onclick="nextSlide()"
+      id="nextSlideButton"
+      style="display: none"
+      href="afterworkQuestion.html"
+      >Suivant</a
+    >
   </body>
 </html>

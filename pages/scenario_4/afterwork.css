@@ -1,12 +1,34 @@
-a {
-  color: black;
-  text-decoration: none;
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: url("../../assets/bureauassistante.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-a:visited {
-  color: unset;
+.lisa {
+  top: 31.6%;
+  left: 20%;
+  position: absolute;
 }
 
+.conseillere {
+  top: 30%;
+  left: 60%;
+  position: absolute;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 5vh;
+  left: 5vh;
+  background-color: black;
+  border-radius: 200px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
 .back svg path {
   fill: white;
 }
@@ -21,35 +43,106 @@ a:visited {
   font-size: 1.5em;
   margin-left: 1em;
 }
+a:visited {
+  color: unset;
+}
 
-.back {
+.people {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+}
+
+.continue {
+  background-color: black;
+  color: white;
+  border-radius: 30%;
+  font-size: 1.5em;
+  position: absolute;
+  left: 90%;
+  top: 85%;
+}
+
+/* Slideshow container */
+.slideshow-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 5vh;
-  left: 5vh;
-  background-color: black;
-  border-radius: 200px;
-  padding: 0.5em 1em;
+  background-color: aliceblue;
+  height: 130px;
+  width: 600px;
+  left: 25%;
+  top: 75%;
+  border: 2px solid black;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 40px;
+  text-align: center;
+  font-size: 80%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
   cursor: pointer;
-}
-
-body {
-  background-image: url("../../assets/bar.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-height: 100vh;
-  display: flex;
-}
-
-.manager {
-  background-size: contain;
-  bottom: 0;
-  left: 15vh;
   position: absolute;
-  background-repeat: no-repeat;
-  height: 50vh;
-  width: 100%;
-  background-image: url("../../assets/personnages/manager/Manager\ 1.png");
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  position: absolute;
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+/* Add an italic font style to all quotes */
+q {
+  font-style: italic;
+}
+
+.author {
+  color: black; /* Couleur par défaut du texte */
+}
+
+/* Style pour Lucas T. */
+.conseillere-author {
+  color: maroon; /* Couleur pour Lucas T. */
+}
+
+/* Style pour Mathilde G */
+.lisa-author {
+  color: gray; /* Couleur pour Mathilde G */
+}
+/* Ajoutez ces styles pour désactiver les boutons */
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
